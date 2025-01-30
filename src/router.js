@@ -50,7 +50,7 @@ export default function Routes() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loader />}>
-        <Router>
+        <Router basename="/v1">
           <Switch>
             <Route
               path={`${PUBLIC_ROUTE.REPORT}/:nodeAddress`}

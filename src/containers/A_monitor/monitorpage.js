@@ -3,6 +3,7 @@ import isEmpty from "lodash/isEmpty";
 import { Line } from "react-chartjs-2";
 import CustomLineChart from "./CustomLineChart";
 import CustomScatterChart from "./CustomScatterChart";
+import VersionDropdown from "./VersionDropdown.js";
 //import LayoutContentWrapper from '@iso/components/utility/layoutWrapper';
 //import LayoutContent from '@iso/components/utility/layoutContent';
 import Modals from "@iso/components/Feedback/Modal";
@@ -61,6 +62,7 @@ import gaia from "@iso/assets/images/atom.png";
 import thornode from "@iso/assets/images/thornode.svg";
 import avax from "@iso/assets/images/avax.png";
 import bsc from "@iso/assets/images/bsc.png";
+import base from "@iso/assets/images/base_icon.svg";
 
 import blockIcon from "@iso/assets/images/overview/block_icon.svg";
 import blockIconDark from "@iso/assets/images/overview/block_icon_darkmode.svg";
@@ -1538,6 +1540,40 @@ const NodeTable = ({
                         {renderWarningIcon("BSC")}
                       </div>
                     </th>
+                    <th
+                      className={getHeaderClassName("BASE")}
+                      style={{
+                        ...headerStyle,
+                        ...iconStyle,
+                        textAlign: "center",
+                      }}
+                      onClick={() => clickSortHeader("BASE")}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <img
+                          alt="#"
+                          src={base}
+                          style={{
+                            width: 25,
+                            height: 25,
+                            display: "block",
+                            marginRight: "5px",
+                          }}
+                        />
+                        <SortIcon
+                          column={"BASE"}
+                          sortBy={sortBy}
+                          sortDirection={sortDirection}
+                        />
+                        {renderWarningIcon("BASE")}
+                      </div>
+                    </th>
                   </>
                 )}
               </tr>
@@ -1972,6 +2008,11 @@ const NodeTable = ({
                         obchains={item.obchains}
                         maxChainHeights={maxChainHeights}
                       />
+                      <ChainTD
+                        chain={"BASE"}
+                        obchains={item.obchains}
+                        maxChainHeights={maxChainHeights}
+                      />
                     </>
                   )}
                 </tr>
@@ -2032,6 +2073,7 @@ const defaulColumns = {
   GAIA: true,
   AVAX: true,
   BSC: true,
+  BASE: true,
 };
 export default class extends Component {
   static contextType = ThemeContext;
@@ -2404,6 +2446,7 @@ We use string sort function if value is one of the arrays else do second sort nu
       "GAIA",
       "AVAX",
       "BSC",
+      "BASE",
     ].includes(item);
     const direction =
       this.state.sortBy !== item
@@ -3095,6 +3138,8 @@ We use string sort function if value is one of the arrays else do second sort nu
             <div className="active-node">
               <ThemeToggleButton />
             </div>
+
+            <VersionDropdown />
           </div>
         </Header>
         <Content style={{ padding: 40, backgroundColor: "white" }}>

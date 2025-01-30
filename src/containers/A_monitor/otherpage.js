@@ -22,6 +22,8 @@ import {
 import { useTheme } from "../../ThemeContext.js";
 import { ThemeContext } from "../../ThemeContext.js";
 import ThemeToggleButton from "./ThemeToggleButton.js";
+import VersionDropdown from "./VersionDropdown.js";
+
 // import { ThemeContext } from "styled-components";
 import heartBlankWhite from "@iso/assets/images/heart-white.png";
 import heartBlank from "@iso/assets/images/heart-blank.png";
@@ -2700,6 +2702,8 @@ We use string sort function if value is one of the arrays else do second sort nu
             <div className="active-node">
               <ThemeToggleButton />
             </div>
+
+            <VersionDropdown />
           </div>
         </Header>
         <Content style={{ padding: 40, backgroundColor: "white" }}>
