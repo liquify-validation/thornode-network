@@ -63,6 +63,7 @@ import thornode from "@iso/assets/images/thornode.svg";
 import avax from "@iso/assets/images/avax.png";
 import bsc from "@iso/assets/images/bsc.png";
 import base from "@iso/assets/images/base_icon.svg";
+import tron from "@iso/assets/images/tron_icon.svg";
 
 import blockIcon from "@iso/assets/images/overview/block_icon.svg";
 import blockIconDark from "@iso/assets/images/overview/block_icon_darkmode.svg";
@@ -1574,6 +1575,40 @@ const NodeTable = ({
                         {renderWarningIcon("BASE")}
                       </div>
                     </th>
+					<th
+						className={getHeaderClassName("TRON")}
+						style={{
+						...headerStyle,
+						...iconStyle,
+						textAlign: "center",
+						}}
+						onClick={() => clickSortHeader("TRON")}
+					>
+						<div
+						style={{
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+						}}
+						>
+						<img
+							alt="#"
+							src={tron}
+							style={{
+							width: 25,
+							height: 25,
+							display: "block",
+							marginRight: "5px",
+							}}
+						/>
+						<SortIcon
+							column={"TRON"}
+							sortBy={sortBy}
+							sortDirection={sortDirection}
+						/>
+						{renderWarningIcon("TRON")}
+						</div>
+					</th>
                   </>
                 )}
               </tr>
@@ -2010,6 +2045,11 @@ const NodeTable = ({
                       />
                       <ChainTD
                         chain={"BASE"}
+                        obchains={item.obchains}
+                        maxChainHeights={maxChainHeights}
+                      />
+					  <ChainTD
+                        chain={"TRON"}
                         obchains={item.obchains}
                         maxChainHeights={maxChainHeights}
                       />
