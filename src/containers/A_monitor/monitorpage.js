@@ -2114,6 +2114,7 @@ const defaulColumns = {
   AVAX: true,
   BSC: true,
   BASE: true,
+  TRON: true,
 };
 export default class extends Component {
   static contextType = ThemeContext;
@@ -2487,6 +2488,7 @@ We use string sort function if value is one of the arrays else do second sort nu
       "AVAX",
       "BSC",
       "BASE",
+	  "TRON",
     ].includes(item);
     const direction =
       this.state.sortBy !== item
